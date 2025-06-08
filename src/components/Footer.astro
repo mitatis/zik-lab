@@ -1,0 +1,51 @@
+---
+import Hr from "./Hr.astro";
+import Socials from "./Socials.astro";
+
+const currentYear = new Date().getFullYear();
+
+export interface Props {
+  noMarginTop?: boolean;
+}
+
+const { noMarginTop = false } = Astro.props;
+---
+
+<footer class:list={["w-full", { "mt-auto": !noMarginTop }]}>
+  <Hr noPadding />
+  <div
+    class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"
+  >
+    <Socials centered />
+    <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
+      <!-- <span> &#169; {currentYear} ZIK Trinity</span> -->
+      <span>&#169; {currentYear}
+      <a 
+              href="https://astro.build" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="group inline-flex items-center transition-colors"
+            >
+              <span class="relative">
+                ZIK Trinity
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#FF5D01] transition-all duration-300 group-hover:w-full"></span>
+              </span>
+            </a>
+        </span>
+      <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
+      <span>Built with 
+      <a 
+              href="https://astro.build" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="group inline-flex items-center transition-colors"
+            >
+              <span class="relative">
+                Astro Paper
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#FF5D01] transition-all duration-300 group-hover:w-full"></span>
+              </span>
+            </a>
+        </span>
+    </div>
+  </div>
+</footer>
