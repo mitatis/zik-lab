@@ -2,11 +2,6 @@
 
 基于 [ Astro Paper](https://github.com/satnaing/astro-paper) 搭建的中文信息站
 
-Read [the blog posts](https://astro-paper.pages.dev/posts/) or check [the README Documentation Section](#-documentation) for more info.
-
-
-
-
 ## 项目结构
 
 ```bash
