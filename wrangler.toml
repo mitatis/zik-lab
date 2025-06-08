@@ -1,0 +1,5 @@
+name = "lab"
+compatibility_date = "2025-06-09"
+
+[assets]
+directory = "./dist"
