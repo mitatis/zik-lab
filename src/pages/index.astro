@@ -42,27 +42,77 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         <span class="sr-only">RSS Feed</span>
       </a>
 
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+      <p class="text-sm sm:text-base italic text-muted-foreground">
+        tips: 你可以随时通过顶部导航/菜单栏，或直接点击带虚线的关键词，去到你感兴趣的任何地方；）
+      </p>
+
+      <p class="mt-4">
+        嗨，我是 <LinkButton
+            class="underline decoration-dashed underline-offset-4 hover:text-accent"
+            href="https://zik-3.com"
+            title="个人主页"
+          >
+            Mitatis
+          </LinkButton>，这是我的信息陈列站，旨在分享人工智能、科技发展、AI创投的最新讯息！
       </p>
       <p class="mt-2">
-        Read the blog posts or check
+        本站主要包括以下几个基本功能，其它功能正在开发中：
+      </p>
+
+      <p class="mt-2">
+        
+        <ul  class="mt-4 list-disc pl-6">
+          <li class="mt-2"><LinkButton
+            class="underline decoration-dashed underline-offset-4 hover:text-accent"
+            href="/building"
+            title="AI图谱"
+          >
+            AI图谱
+          </LinkButton> 通过力导向图展现主流大语言模型的历史发展与关系，并用卡片详细介绍各个模型特点。在这里你可以找到LLM发展最体系的前沿信息。</li>
+          <li class="mt-2"><LinkButton
+            class="underline decoration-dashed underline-offset-4 hover:text-accent"
+            href="/building"
+            title="AI图谱"
+          >
+            新闻板
+          </LinkButton> 通过日报/周报等形式展示科技热点，并引用第三方信息作为展示面板。（持续改进中）</li>
+          <li class="mt-2"><LinkButton
+            class="underline decoration-dashed underline-offset-4 hover:text-accent"
+            href="/building"
+            title="信号流"
+          >
+            信号流
+          </LinkButton> 会定期推送最新讯息，并支持RSS服务，详见 <LinkButton
+            class="underline decoration-dashed underline-offset-4 hover:text-accent"
+            href="/building"
+            title="RSS"
+          >
+            RSS教程
+          </LinkButton></li>
+        </ul>
+        </p>
+        
+        
+        <p class="mt-4">
+          
+        更多信息请参考
         <LinkButton
           class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
+          href="/about"
+          title="网站介绍"
         >
-          README
-        </LinkButton> for more info.
+          网站介绍
+        </LinkButton>
       </p>
       {
         // only display if at least one social link is enabled
         SOCIALS.length > 0 && (
           <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
-            <div class="mr-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
-            <Socials />
+            <div class="mr-2 mb-1 whitespace-nowrap sm:mb-0">社媒：</div>
+            <Socials /> <a class="pl-2"
+          href= "https://zik-3.com"
+        ><img src="/favicon_black.svg"  class="h-6 w-6 fill-current text-[#374151] dark:text-[#e5e7eb]" alt="ZIK Logo" />
+        </a>
           </div>
         )
       }

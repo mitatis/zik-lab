@@ -68,3 +68,14 @@ html[data-theme="dark"] {
 :target {
   scroll-margin-block: 1rem;
 }
+
+/* 让 iframe 占满容器，并启用平滑过渡 */
+.iframe-container iframe {
+  transition: filter 0.3s ease;
+}
+
+/* 使用 data-theme 属性切换暗色 */
+html[data-theme="dark"] .iframe-container iframe {
+  filter: invert(1) hue-rotate(180deg) brightness(0.9);
+}
+

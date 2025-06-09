@@ -14,10 +14,29 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    remarkPlugins: [
+      [
+        remarkToc,
+        {
+          // 使用标题“目录”来定位并生成目录
+          heading: "目录",
+          tight: true,    // 紧凑列表
+          ordered: false, // 使用无序列表
+          maxDepth: 3,    // 仅包含到 h3
+        },
+      ],
+      [
+        remarkCollapse,
+        {
+          test: "目录",
+          summary: "展开", // 改成中文 summary
+          open: false,        // 默认收起；想展开就设 true
+        },
+      ],
+    ],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
-      themes: { light: "min-light", dark: "night-owl" },
+      themes: { light: "github-light-default", dark: "github-dark" },
       wrap: true,
     },
   },

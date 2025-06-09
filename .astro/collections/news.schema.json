@@ -69,7 +69,7 @@
             "type": "string"
           },
           "default": [
-            "others"
+            "其它"
           ]
         },
         "ogImage": {

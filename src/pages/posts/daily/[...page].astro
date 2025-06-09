@@ -1,0 +1,33 @@
+---
+// @ts-nocheck
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Card from "@/components/Card.astro";
+import Pagination from "@/components/Pagination.astro";
+import getSortedNews from "@/utils/getSortedPosts";
+import { SITE } from "@/config";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getCollection("news", ({ data }) => !data.draft);
+  return paginate(getSortedNews(posts) as any, { pageSize: SITE.postPerPage });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props as any;
+---
+
+<Layout title={`日报 | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="智客日报" pageDesc="查看每天的AI新闻和科技资讯">
+    <ul>
+    {page.data.map(data => <Card {...(data as any)} />)}
+    </ul>
+  </Main>
+
+  <Pagination {page} />
+
+  <Footer noMarginTop={page.lastPage > 1} />
+</Layout>

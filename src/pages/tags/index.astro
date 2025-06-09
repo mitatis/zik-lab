@@ -13,7 +13,7 @@ const posts = await getCollection("blog");
 let tags = getUniqueTags(posts);
 ---
 
-<Layout title={`# | ${SITE.title}`}>
+<Layout title={`标签 | ${SITE.title}`}>
   <Header />
   <Main pageTitle="标签" pageDesc="根据相关主题索引所有文章">
     <ul>
