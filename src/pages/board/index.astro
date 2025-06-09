@@ -109,10 +109,11 @@ const week = weeks[0];
   <!-- 右边：iframe 区域 -->
   <div class="iframe-container h-[150vh] sm:h-full w-full overflow-hidden">
     <iframe
+      style="pointer-events: auto;"
       src="https://zeli.app/zh"
       title="Zeli"
       loading="lazy"
-      sandbox="allow-scripts allow-same-origin"
+      sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
       class="transform origin-top-left scale-[1.3] w-[76.923%] h-[76.923%] border-[1px] border-gray-300 rounded-lg"
       
     ></iframe>
