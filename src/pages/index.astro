@@ -47,13 +47,14 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       </p>
 
       <p class="mt-4">
-        嗨，我是 <LinkButton
+        嗨，我是 <a
+            target="_blank" rel="noopener noreferrer"
             class="underline decoration-dashed underline-offset-4 hover:text-accent"
             href="https://zik-3.com"
             title="个人主页"
           >
             Mitatis
-          </LinkButton>，这是我的信息陈列站，旨在分享人工智能、科技发展、AI创投的最新讯息！
+          </a>，这是我的信息陈列站，旨在分享人工智能、科技发展、AI创投的最新讯息！
       </p>
       <p class="mt-2">
         本站主要包括以下几个基本功能，其它功能正在开发中：
@@ -109,10 +110,12 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         SOCIALS.length > 0 && (
           <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
             <div class="mr-2 mb-1 whitespace-nowrap sm:mb-0">社媒：</div>
-            <Socials /> <a class="pl-2"
-          href= "https://zik-3.com"
-        ><img src="/favicon_black.svg"  class="h-6 w-6 fill-current dark:invert" alt="ZIK Logo" />
-        </a>
+            <Socials /> <a
+                        target="_blank" rel="noopener noreferrer"
+                        class="pl-2"
+                        href= "https://zik-3.com"
+                        ><img src="/favicon_black.svg"  class="h-6 w-6 fill-current dark:invert" alt="ZIK Logo" />
+                        </a>
           </div>
         )
       }
