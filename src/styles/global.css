@@ -71,11 +71,13 @@ html[data-theme="dark"] {
 
 /* 让 iframe 占满容器，并启用平滑过渡 */
 .iframe-container iframe {
+    background-color: transparent;
   transition: filter 0.3s ease;
 }
 
 /* 使用 data-theme 属性切换暗色 */
 html[data-theme="dark"] .iframe-container iframe {
-  filter: invert(1) hue-rotate(180deg) brightness(0.9);
+    background-color: transparent;
+  filter: invert(0.89) contrast(1.1) hue-rotate(180deg) brightness(1.3);
 }
 

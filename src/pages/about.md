@@ -14,7 +14,7 @@ title: "关于 Zik-Lab"
   - 是他给了我建设数字空间的灵感
 - [新闻板](/board)
   - 调用 <a href="https://zeli.app/zh" target="_blank" rel="noopener noreferrer">Zeli</a> 作为内嵌组件
-  - 欢迎大家前往作者的<a href="https://mazzzystar.com/" target="_blank" rel="noopener noreferrer">博客</a>了解更多
+  - 源网页支持PWA，在移动端体验很好。欢迎大家前往作者的<a href="https://mazzzystar.com/" target="_blank" rel="noopener noreferrer">博客</a>了解更多
 - [信号流](/news)
   - 使用 <a href="https://platform.deepseek.com/" target="_blank" rel="noopener noreferrer">deepseek</a> 付费API进行内容处理
 - [博客](/insights) 中会收纳我发表的主观性内容、技术教程和工具分享等
