@@ -21,7 +21,7 @@ const { page } = Astro.props as any;
 
 <Layout title={`洞察 | ${SITE.title}`}>
   <Header />
-  <Main pageTitle="洞察" pageDesc="科技与哲思&工具分享">
+  <Main pageTitle="洞察" pageDesc="科技思考&工具分享">
     <ul>
       {page.data.map(data => <Card {...(data as any)} />)}
     </ul>
