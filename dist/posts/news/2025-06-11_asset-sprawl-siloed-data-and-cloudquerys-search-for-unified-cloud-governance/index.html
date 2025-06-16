@@ -1,0 +1,602 @@
+<!DOCTYPE html><html lang="zh-CN" class="scroll-smooth" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><!-- 浅色主题下使用深色图标 --><link rel="icon" type="image/svg+xml" href="/favicon_black.svg" media="(prefers-color-scheme: light)"><!-- 深色主题下使用浅色图标 --><link rel="icon" type="image/svg+xml" href="/favicon_white.svg" media="(prefers-color-scheme: dark)"><meta name="generator" content="Astro v5.9.1"><!-- General Meta Tags --><title>资产蔓延、数据孤岛与CloudQuery对统一云治理的探索 | ZIK Lab</title><meta name="title" content="资产蔓延、数据孤岛与CloudQuery对统一云治理的探索 | ZIK Lab"><meta name="description" content="CloudQuery通过集中存储云资产并提供SQL查询，解决企业云资源分散问题，近期获1600万美元融资以扩展可视化方案。"><meta name="author" content="Mitatis"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="资产蔓延、数据孤岛与CloudQuery对统一云治理的探索 | ZIK Lab"><meta property="og:description" content="CloudQuery通过集中存储云资产并提供SQL查询，解决企业云资源分散问题，近期获1600万美元融资以扩展可视化方案。"><meta property="og:url" content="https://lab.zik-3.com/posts/news/2025-06-11_asset-sprawl-siloed-data-and-cloudquerys-search-for-unified-cloud-governance/"><meta property="og:image" content="https://lab.zik-3.com/posts/news/2025-06-11_asset-sprawl-siloed-data-and-cloudquerys-search-for-unified-cloud-governance/index.png"><!-- Article Published/Modified time --><meta property="article:published_time" content="2025-06-11T13:30:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://lab.zik-3.com/posts/news/2025-06-11_asset-sprawl-siloed-data-and-cloudquerys-search-for-unified-cloud-governance/"><meta property="twitter:title" content="资产蔓延、数据孤岛与CloudQuery对统一云治理的探索 | ZIK Lab"><meta property="twitter:description" content="CloudQuery通过集中存储云资产并提供SQL查询，解决企业云资源分散问题，近期获1600万美元融资以扩展可视化方案。"><meta property="twitter:image" content="https://lab.zik-3.com/posts/news/2025-06-11_asset-sprawl-siloed-data-and-cloudquerys-search-for-unified-cloud-governance/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"资产蔓延、数据孤岛与CloudQuery对统一云治理的探索 | ZIK Lab","image":"https://lab.zik-3.com/posts/news/2025-06-11_asset-sprawl-siloed-data-and-cloudquerys-search-for-unified-cloud-governance/index.png","datePublished":"2025-06-11T13:30:00.000Z","author":[{"@type":"Person","name":"Mitatis","url":"https://zik-3.com/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="ZIK Lab" href="https://lab.zik-3.com/rss.xml"><meta name="theme-color" content=""><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CtSceO8m.js"></script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/about.BNti9wJJ.css">
+<style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+:where([data-astro-image]){object-fit:var(--fit);object-position:var(--pos);height:auto}:where([data-astro-image=full-width]){width:100%}:where([data-astro-image=constrained]){max-width:100%}
+</style><style>[data-astro-transition-scope="astro-fam6wyqg-1"] { view-transition-name: \8D44\4EA7\8513\5EF6\3001\6570\636E\5B64\5C9B\4E0E-cloud-query\5BF9\7EDF\4E00\4E91\6CBB\7406\7684\63A2\7D22; }@layer astro { ::view-transition-old(\8D44\4EA7\8513\5EF6\3001\6570\636E\5B64\5C9B\4E0E-cloud-query\5BF9\7EDF\4E00\4E91\6CBB\7406\7684\63A2\7D22) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\8D44\4EA7\8513\5EF6\3001\6570\636E\5B64\5C9B\4E0E-cloud-query\5BF9\7EDF\4E00\4E91\6CBB\7406\7684\63A2\7D22) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\8D44\4EA7\8513\5EF6\3001\6570\636E\5B64\5C9B\4E0E-cloud-query\5BF9\7EDF\4E00\4E91\6CBB\7406\7684\63A2\7D22) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\8D44\4EA7\8513\5EF6\3001\6570\636E\5B64\5C9B\4E0E-cloud-query\5BF9\7EDF\4E00\4E91\6CBB\7406\7684\63A2\7D22) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fam6wyqg-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fam6wyqg-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fam6wyqg-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fam6wyqg-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-2"] { view-transition-name: \4F01\4E1A\4E91\8D44\6E90\7BA1\7406; }@layer astro { ::view-transition-old(\4F01\4E1A\4E91\8D44\6E90\7BA1\7406) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\4F01\4E1A\4E91\8D44\6E90\7BA1\7406) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\4F01\4E1A\4E91\8D44\6E90\7BA1\7406) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\4F01\4E1A\4E91\8D44\6E90\7BA1\7406) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-3"] { view-transition-name: \6570\636E\5B64\5C9B; }@layer astro { ::view-transition-old(\6570\636E\5B64\5C9B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\6570\636E\5B64\5C9B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\6570\636E\5B64\5C9B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\6570\636E\5B64\5C9B) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-4"] { view-transition-name: cloud-query; }@layer astro { ::view-transition-old(cloud-query) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(cloud-query) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(cloud-query) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(cloud-query) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-5"] { view-transition-name: sql\67E5\8BE2; }@layer astro { ::view-transition-old(sql\67E5\8BE2) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(sql\67E5\8BE2) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(sql\67E5\8BE2) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(sql\67E5\8BE2) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-6"] { view-transition-name: \65E0\670D\52A1\5668\6570\636E\6E56; }@layer astro { ::view-transition-old(\65E0\670D\52A1\5668\6570\636E\6E56) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\65E0\670D\52A1\5668\6570\636E\6E56) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\65E0\670D\52A1\5668\6570\636E\6E56) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\65E0\670D\52A1\5668\6570\636E\6E56) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-6"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-6"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-6"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-7"] { view-transition-name: \8DE8\4E91ip\7BA1\7406; }@layer astro { ::view-transition-old(\8DE8\4E91ip\7BA1\7406) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(\8DE8\4E91ip\7BA1\7406) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(\8DE8\4E91ip\7BA1\7406) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(\8DE8\4E91ip\7BA1\7406) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-7"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-7"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-7"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-7"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-sckkx6r4>  <header> <a id="skip-to-content" href="#main-content" class="absolute -top-full left-16 z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+正文
+</a> <div id="nav-container" class="mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-left text-2xl leading-7 font-semibold whitespace-nowrap sm:static"></a><a href="/"> ZIK Lab </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/about">
+*&*
+</a> </li> <li class="col-span-2"> <a href="/building">
+AI图谱
+</a> </li> <li class="col-span-2"> <a href="/board">
+新闻板
+</a> </li> <!-- <li class="col-span-2">
+            <a href="/" class:list={{ "active-nav": isActive("/") }}>
+              主页
+            </a>
+          </li> --> <li class="col-span-2"> <a href="/posts/news" class="active-nav">
+信号流
+</a> </li> <li class="col-span-2"> <a href="/posts/insights">
+洞察
+</a> </li> <li class="col-span-2"> <a href="/tags">
+标签
+</a> </li> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">归档</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="max-w-3xl mx-auto px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <div class="mx-auto flex w-full max-w-3xl items-center justify-start px-2"><a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-2 flex hover:text-foreground/75"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><span>返回</span></a></div><script type="module">function o(){const t=document.querySelector("#back-button"),e=sessionStorage.getItem("backUrl");e&&t&&(t.href=e)}document.addEventListener("astro:page-load",o);o();</script> <main id="main-content" class="mx-auto w-full max-w-3xl px-4 pb-12" data-pagefind-body> <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl" data-astro-transition-scope="astro-fam6wyqg-1"> 资产蔓延、数据孤岛与CloudQuery对统一云治理的探索 </h1> <div class="flex items-center gap-4"> <div class="flex items-end space-x-2 opacity-80 my-2"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg> <span class="sr-only">发布：</span> <span class="text-sm sm:text-base"> <time datetime="2025-06-11T13:30:00.000Z">2025.06.11</time> <span aria-hidden="true"> | </span> <span class="sr-only">&nbsp;at&nbsp;</span> <span class="text-nowrap">21:30</span> </span> </div>  </div> <article id="article" class="mx-auto prose mt-8 max-w-3xl"> <p><em><a href="https://venturebeat.com/data-infrastructure/asset-sprawl-siloed-data-and-cloudquerys-search-for-unified-cloud-governance/">源信息</a>经过deepseek翻译并总结</em></p>
+<h2 id="摘要">摘要：</h2>
+<p>企业云资源管理面临分散化和数据孤岛问题，现有工具在整合成本、安全数据方面存在局限。CloudQuery通过集中存储云资产、安全元数据和成本数据，支持SQL查询和报告，提供统一视图。其采用开发者优先策略，基于ClickHouse和Apache Arrow技术，从60多个数据源提取数据形成标准化资产清单。Hexagon案例展示了其在构建无服务器数据湖中的应用，解决了跨云IP管理等挑战。该公司近期获1600万美元融资，将扩展云可视化方案。</p>
+<hr>
+<p>以下是翻译后的简体中文Markdown内容，已去除广告并保留所有超链接和原始格式：</p>
+<pre class="astro-code astro-code-themes github-light-default github-dark" style="background-color:#ffffff;--shiki-dark-bg:#24292e;color:#1f2328;--shiki-dark:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">资源分散、数据孤岛与CloudQuery对统一云治理的探索 | VentureBeat</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">跳过至主内容</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">#primary</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">活动</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://venturebeat.com/events/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">视频</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/video/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">特刊</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/venturebeat-special-issues/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">招聘</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://jobs.venturebeat.com/?source=navbar&#x26;utm_source=navbar&#x26;utm_medium=partner_referral</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">VentureBeat首页</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">订阅</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/newsletters/?utm_source=VBsite&#x26;utm_medium=desktopNav</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">人工智能</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/ai/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">查看全部</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/ai/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">AI、ML与深度学习</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/ai-ml-deep-learning/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">自动化机器学习</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/auto-ml/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">数据标注</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/data-labelling/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">合成数据</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/synthetic-data/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">对话式AI</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/conversational-ai/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">自然语言处理</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/nlp/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">文本转语音</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/text-to-speech/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">安全</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/security/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">查看全部</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/security/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">数据安全与隐私</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/data-security-privacy/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">网络安全与隐私</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/network-security-privacy/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">软件安全</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/software-security/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">计算机硬件安全</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/computer-hardware-security/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">云与数据存储安全</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/cloud-data-storage-security/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">数据基础设施</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/data-infrastructure/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">查看全部</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/data-infrastructure/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">数据科学</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/data-science/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">数据管理</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/data-management/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">数据存储与云</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/data-storage-cloud/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">大数据与分析</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/big-data-and-analytics/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">数据网络</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/data-networks/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">自动化</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/automation/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">查看全部</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/automation/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">工业自动化</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/industrial-automation/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">业务流程自动化</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/business-process-automation/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">开发自动化</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/development-automation/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">机器人流程自动化</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/robotic-process-automation/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">测试自动化</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/test-automation/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">企业分析</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/enterprise-analytics/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">查看全部</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/enterprise-analytics/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">商业智能</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/business-intelligence/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">灾备与业务连续性</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/disaster-recovery-business-continuity/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">统计分析</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/statistical-analysis/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">预测分析</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/predictive-analysis/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> 更多</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">数据决策者</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/datadecisionmakers/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">虚拟通信</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/virtual/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">    -</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">团队协作</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/team-collaboration/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">    -</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">统一通信即服务</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/ucaas/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">    -</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">虚拟现实协作</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/virtual-reality-collaboration/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">    -</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">虚拟员工体验</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/virtual-employee-experience/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">  +</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">编程与开发</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/category/programming-development/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">    -</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">产品开发</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/product-development/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">    -</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">应用开发</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/application-development/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">    -</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">测试管理</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/test-management/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">    -</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">开发语言</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/development-languages/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">独家报道：资源分散、数据孤岛与CloudQuery对统一云治理的探索</span></span>
+<span class="line"><span style="color:#0550AE;font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">================================================================</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">Taryn Plumb</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://venturebeat.com/author/taryn-plumb/</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#9ECBFF;--shiki-dark-text-decoration:underline"> "</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">Taryn Plumb的文章</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#9ECBFF;--shiki-dark-text-decoration:underline">"</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">@taryn\_plumb</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://twitter.com/taryn_plumb</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">2025年6月11日 上午6:30</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">分享到Facebook</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">//www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fventurebeat.com%2Fdata-infrastructure%2Fasset-sprawl-siloed-data-and-cloudquerys-search-for-unified-cloud-governance%2F&#x26;t=资源分散、数据孤岛与CloudQuery对统一云治理的探索</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">分享到X</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">//twitter.com/intent/tweet?text=资源分散、数据孤岛与CloudQuery对统一云治理的探索&#x26;url=https%3A%2F%2Fventurebeat.com%2Fdata-infrastructure%2Fasset-sprawl-siloed-data-and-cloudquerys-search-for-unified-cloud-governance%2F&#x26;via=VentureBeat&#x26;related=VentureBeat,GamesBeat</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">分享到LinkedIn</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://www.linkedin.com/cws/share?url=https%3A%2F%2Fventurebeat.com%2Fdata-infrastructure%2Fasset-sprawl-siloed-data-and-cloudquerys-search-for-unified-cloud-governance%2F&#x26;token=&#x26;isFramed=true</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">VentureBeat/Midjourney</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#0550AE;font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">对企业云资源实现可视化并最终获得洞察正变得日益困难。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">云资产呈现分散化和碎片化趋势，现有工具的库存管理功能往往局限且反直觉——例如将成本数据和[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">安全数据</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://venturebeat.com/security/top-five-security-principles-driving-open-source-cyber-apps-at-scale/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)割裂在不同平台，缺乏灵活性。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">云治理公司[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">CloudQuery</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://www.cloudquery.io/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)正通过将云资产、安全元数据和成本数据集中存储，并支持通过简易的内置SQL查询和报告进行访问来解决这一问题。该公司采用开发者优先的云治理方案，从AWS、GCP、Azure、Okta和Wiz等60多个数据源提取数据，汇入统一的可查询数据仓库。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">该公司宣布获得由Partech领投的1600万美元融资，将进一步扩展其云可视化方案。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">"现有工具的最大问题在于形成孤岛——安全、成本、资产库存各自为政，难以获得跨领域的统一视图，"CloudQuery创始人Yevgeny Pats告诉VentureBeat，"即便是'已关机的EC2实例挂载了哪些EBS卷？'这类简单问题，也需要拼接多个工具才能回答。"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;font-style:italic;--shiki-dark:#E1E4E8;--shiki-dark-font-style:italic">*(编者注：我们将在本月VB Transform大会举办"数据质量：生成式AI及未来的信任与性能基石"专题讨论。[</span><span style="color:#0A3069;font-style:italic;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-font-style:inherit;--shiki-dark-text-decoration:underline">立即注册</span><span style="color:#1F2328;font-style:italic;--shiki-dark:#E1E4E8;--shiki-dark-font-style:italic">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://www.vbtransform.com/?utm_source=vb&#x26;utm_medium=article&#x26;utm_content=transformpromo&#x26;utm_campaign=vbarticles</span><span style="color:#1F2328;font-style:italic;--shiki-dark:#E1E4E8;--shiki-dark-font-style:italic">))*</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">技术内核</span></span>
+<span class="line"><span style="color:#0550AE;font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">-------------------------</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">CloudQuery底层采用两大关键技术：ClickHouse开源数据仓库和Apache Arrow数据分析框架。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">这套基于Go语言构建的高性能插件架构直连AWS、Azure、谷歌云平台(GCP)等API接口，抓取配置、安全和[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">成本元数据</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://venturebeat.com/data-infrastructure/how-sp-is-using-deep-web-scraping-ensemble-learning-and-snowflake-architecture-to-collect-5x-more-data-on-smes/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)。该平台持续从数十家云服务商同步数据，形成标准化、集中化的资产清单。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">"我们特别注重数据准确性和时效性，通过高频同步确保团队使用最新可靠数据，"Pats解释道。数据采用关系型结构以支持SQL引擎和内置报告功能，使团队能完全自主分析，无需依赖黑盒工具。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">该公司"选择性"运用[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">大语言模型</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://venturebeat.com/ai/voice-ai-that-actually-converts-new-tts-model-boosts-sales-15-for-major-brands/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)处理自然语言查询、SQL生成和推荐，"但始终建立在准确透明的基础数据之上"。Pats指出，由于Claude和OpenAI等工具能理解SQL语法，用户可用自然语言生成定制化分析报告。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">开发者优先策略至关重要，因为开发者才是实际构建、运营和保障云基础设施的群体。而多数云可视化工具采用自上而下的治理模式，并未服务于一线人员。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">"当开发者能够通过SQL等熟悉语言自由访问数据时，他们就能更快发现问题，构建更安全的系统，"Pats表示。实际使用场景已超越资产清单范畴："客户从可视化起步，很快扩展到合规监控、安全态势管理、成本优化等应用场景。"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">Hexagon如何构建全云存储的无服务器数据湖</span></span>
+<span class="line"><span style="color:#0550AE;font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">-----------------------------------------------------------------</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">软件公司[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">Hexagon</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://hexagon.com/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)的云卓越中心(CCoE)团队曾计划构建全云账户数据的无服务器数据湖，要求支持SQL查询、AWS QuickSight可视化，并能追溯云配置历史。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">该团队利用CloudQuery构建无服务器数据管道：从所有账户收集数据存入S3，通过AWS Glue导入Glue DB，最终由Athena查询并在QuickSight呈现。"无服务器架构是关键要求，"Hexagon云治理与FinOps专家Peter Figueiredo与CloudQuery工程总监Herman Schaaf在[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">博客</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://www.cloudquery.io/blog/how-hexagon-built-an-infrastructure-data-lake</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)中写道："这带来免维护、零更新等显著优势。"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">他们克服了Amazon S3插件支持等挑战。作为首批测试S3目的地功能的用户，Hexagon团队推动了三项改进：</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> Parquet格式支持：最初仅支持CSV/JSON格式，因JSON解析问题新增Parquet格式</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> 数据分区：新增写入时分区功能，减少后续处理步骤</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> Athena资源视图：针对Athena不兼容Postgres的问题，新增表清单检索功能</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">Figueiredo团队还用CloudQuery替代了AWS昂贵的VPC IP地址管理器(IPAM)，实现跨云IP统一管理。"我们以'数据湖'模式运行，采用超低成本架构包括S3、ECS、Glue等，"Figueiredo告诉VentureBeat，"现在能快速查询任意IP归属，这彻底改变了我们的工作方式。"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">企业级AI实践平台——VB Transform 2025邀您参与</span></span>
+<span class="line"><span style="color:#0550AE;font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">------------------------------------------------------------</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">6月24-25日旧金山峰会，与行业领袖共同解决真实挑战，分享已验证策略，塑造AI未来。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">[</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">了解更多</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://www.vbtransform.com/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">VentureBeat首页</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">Facebook关注我们</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://www.facebook.com/venturebeat/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">X关注我们</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://twitter.com/venturebeat</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">LinkedIn关注我们</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://www.linkedin.com/company/venturebeat</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">RSS订阅</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://feeds.feedburner.com/venturebeat/SZYF</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">新闻稿</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/tag/business-sponsored-company-news/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">联系我们</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/contact/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">广告合作</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://media.venturebeat.com/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">新闻线索</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/contact/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">投稿DataDecisionMakers</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/guest-posts/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">隐私政策</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/privacy-policy/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">服务条款</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">/terms-of-service/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#953800;--shiki-dark:#FFAB70">*</span><span style="color:#1F2328;--shiki-dark:#E1E4E8"> 请勿出售我的个人信息</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">© 2025 [</span><span style="color:#0A3069;text-decoration:inherit;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline">VentureBeat</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">](</span><span style="color:#1F2328;text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline">https://venturebeat.com/</span><span style="color:#1F2328;--shiki-dark:#E1E4E8">) 版权所有</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">```### 您需要的高效洞察，无冗余干扰</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">提交</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">感谢您的订阅。查看更多[VB资讯简报请点击此处](/newsletters/)。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E1E4E8">发生错误</span></span></code></pre> </article> <hr class="my-8 border-dashed">  <div id="btt-btn-container" class="fixed right-4 bottom-8 xl:right-auto xl:left-[calc((var(--container-3xl)/2)+50%+1rem)] translate-y-14 opacity-0 transition-all duration-500"> <button data-button="back-to-top" class="group relative size-14 rounded-full px-2 py-1 shadow-xl lg:h-8 lg:w-fit lg:rounded-md lg:shadow-none bg-background lg:bg-transparent"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent lg:hidden lg:h-8 lg:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 lg:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only underline decoration-dashed decoration-2 underline-offset-4 group-hover:text-accent lg:not-sr-only"> <span class="text-xl" tabindex="0">&uarr;</span> 顶部
+</span> </button> </div> <script data-astro-rerun>
+  /** Scrolls the document to the top when
+   * the "Back to Top" button is clicked. */
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    // Attach click event handler for back-to-top button
+    backToTopBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Handle button visibility according to scroll position
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        lastVisible = isVisible;
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  backToTop();
+</script> <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-start sm:gap-8"> <ul class="self-start"> <li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/企业云资源管理/" class="relative pr-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 text-sm" data-astro-transition-scope="astro-36ssibgs-2"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -mr-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>
+&nbsp;<span>企业云资源管理</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/数据孤岛/" class="relative pr-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 text-sm" data-astro-transition-scope="astro-36ssibgs-3"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -mr-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>
+&nbsp;<span>数据孤岛</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/cloud-query/" class="relative pr-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 text-sm" data-astro-transition-scope="astro-36ssibgs-4"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -mr-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>
+&nbsp;<span>CloudQuery</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/sql查询/" class="relative pr-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 text-sm" data-astro-transition-scope="astro-36ssibgs-5"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -mr-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>
+&nbsp;<span>SQL查询</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/无服务器数据湖/" class="relative pr-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 text-sm" data-astro-transition-scope="astro-36ssibgs-6"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -mr-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>
+&nbsp;<span>无服务器数据湖</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"> <a href="/tags/跨云ip管理/" class="relative pr-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 text-sm" data-astro-transition-scope="astro-36ssibgs-7"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -mr-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>
+&nbsp;<span>跨云IP管理</span> </a> </li> </ul> <div class="flex flex-none flex-col items-center justify-center gap-1 sm:items-end"><span class="font-family: serif;">分享到：</span><div class="text-center"><a href="https://t.me/share/url?url=https://lab.zik-3.com/posts/news/2025-06-11_asset-sprawl-siloed-data-and-cloudquerys-search-for-unified-cloud-governance/" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via Telegram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg><span class="sr-only">Share this post via Telegram</span></a></div></div> </div> <hr class="my-6 border-dashed"> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2"> <a href="/posts/news/2025-06-11_wandercraft-raises-75m-for-acceleration-of-aipowered-humanoid-robotics-and-exoskeletons" class="flex w-full gap-1 hover:opacity-75"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div> <span>上一篇</span> <div class="text-sm text-accent/85">Wandercraft获7500万美元融资以加速AI驱动人形机器人与外骨骼研发</div> </div> </a> <a href="/posts/news/2025-06-11_generative-ai-helps-us-bend-time-crowdstrike-nvidia-embed-realtime-llm-defense-changing-how-enterprises-secure-ai" class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2"> <div> <span>下一篇</span> <div class="text-sm text-accent/85">&quot;生成式AI助我们扭转时间&quot;：CrowdStrike与英伟达嵌入实时LLM防御，改变企业AI安全方式</div> </div> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> </main> <footer class="w-full mt-auto"> <div class="max-w-3xl mx-auto px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/mitatis" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="ZIK Lab on Github"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only">ZIK Lab on Github</span> </a><a href="https://www.linkedin.com/in/zikai-ai-43a22a36a/" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="ZIK Lab on LinkedIn"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">ZIK Lab on LinkedIn</span> </a><a href="https://letterbird.co/mitatis" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to ZIK Lab"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg> <span class="sr-only">Send an email to ZIK Lab</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <!-- <span> &#169; {currentYear} ZIK Trinity</span> --> <span>&#169; 2025 <a href="https://zik-3.com" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center transition-colors"> <span class="relative">
+ZIK Trinity
+<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#FF5D01] transition-all duration-300 group-hover:w-full"></span> </span> </a> </span> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> <span>Built with
+<a href="https://astro.build/themes/details/astropaper/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center transition-colors"> <span class="relative">
+Astro Paper
+<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#FF5D01] transition-all duration-300 group-hover:w-full"></span> </span> </a> </span> </div> </div> </footer>  </body></html> <script data-astro-rerun>
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document,
+   *  allowing sharing of sections easily */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ml-2 opacity-0 group-hover:opacity-100 focus:opacity-100";
+      link.href = "#" + heading.id;
+
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks in the document,
+   * allowing users to copy code easily. */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute right-3 -top-3 rounded bg-muted px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      // wrap codebock with relative parent element
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+
+      await navigator.clipboard.writeText(text ?? "");
+
+      // visual feedback that task is completed
+      button.innerText = "Copied";
+
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script>
