@@ -3,7 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "关于 Zik-Lab"
 ---
 
-这是一个纯粹为信息服务的网站，希望通过集中化的即时信息和分析性思考，在信息洪流中建造一个数字化的栖身之地，为更多人提供便利。
+这是一个纯粹为信息服务的网站，希望通过集中化的即时信息和分析性思考，为更多人提供便利。
 
 该网站的所有功能来源于<a href="https://zik-3.com" target="_blank" rel="noopener noreferrer">我本人</a>和第三方开源项目：
 
@@ -14,7 +14,7 @@ title: "关于 Zik-Lab"
   - 基于我的朋友 <a href="https://github.com/Kitty-XV" target="_blank" rel="noopener noreferrer">Kitty-XV</a> 的个人项目 <a href="https://github.com/Kitty-XV/LLM-Evo-Tree" target="_blank" rel="noopener noreferrer">LLM-Evo-Tree</a>
   - 是他给了我建设数字空间的灵感
 - [新闻板](/board)
-  - 期望作为一站式展示信息的“看板”，功能还处于优化阶段
+  - 期望作为一站式展示信息的“看板”，功能仍处于优化阶段
   - 调用 <a href="https://zeli.app/zh" target="_blank" rel="noopener noreferrer">Zeli</a> 作为内嵌组件：<a href="https://zeli.app/zh" target="_blank" rel="noopener noreferrer">Zeli</a> 支持PWA，在移动端体验非常好。欢迎大家前往作者的<a href="https://mazzzystar.com/" target="_blank" rel="noopener noreferrer">博客</a>了解更多
 - [信号流](/news)
   - 信息收集自互联网公开资料

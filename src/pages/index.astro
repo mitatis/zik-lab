@@ -117,12 +117,13 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         SOCIALS.length > 0 && (
           <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
             <div class="mr-2 mb-1 whitespace-nowrap sm:mb-0">社媒：</div>
-            <Socials /> <a
+            <Socials /> 
+            {/* <a
                         target="_blank" rel="noopener noreferrer"
                         class="pl-2"
                         href= "https://zik-3.com"
                         ><img src="/favicon_black.svg"  class="h-6 w-6 fill-current dark:invert" alt="ZIK Logo" />
-                        </a>
+            </a> */}
           </div>
         )
       }
